@@ -17,7 +17,7 @@ def rgba2rgb(img):
 
 def main(args):
 
-	output_folder = args.rgb_folder.repace('imagedata++', 'saliencymaps')
+	output_folder = args.rgb_folder.replace('imagedata++', 'saliencymaps')
 
 	if not os.path.exists(output_folder):
 		os.makedirs(output_folder)
