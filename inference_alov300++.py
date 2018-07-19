@@ -9,6 +9,8 @@ import argparse
 import sys
 from skimage import color
 
+from tqdm import tqdm
+
 g_mean = np.array(([126.88,120.24,112.19])).reshape([1,1,3])
 output_folder = "./test_output"
 
@@ -31,7 +33,7 @@ def main(args):
 
 		if args.rgb_folder:
 			rgb_pths = [y for x in os.walk(args.rgb_folder) for y in glob(os.path.join(x[0], '*.jpg'))]
-			for rgb_pth in rgb_pths:
+			for rgb_pth in tqdm(rgb_pths):
 				rgb = misc.imread(rgb_pth)
 
 				if len(rgb.shape) == 2:
